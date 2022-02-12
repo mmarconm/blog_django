@@ -1,6 +1,9 @@
 from django.shortcuts import render, HttpResponse
 
+# Local imports
+from articles.models import Article
 # Create your views here.
 
 def articles_list(request):
-    return HttpResponse('<h1>Articles List</h1>')
+    articles = Article.objects.all()
+    return render(request, 'articles/articles_list.html', {'articles': articles, 'title': 'Articles Blog Post'})

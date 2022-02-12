@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ title }} {% endblock title %}
+
+{% block content %}
+
+    <h3>Articles blog </h3>
+    {% if articles %}
+        <ul class="list-group">
+            {% for article in articles %}
+                <li class="list-group-item">
+                    <p class="text-center">{{ article.title }}</p>
+                    <p>{{ article.published_at }}</p>
+                    <p>{{ article.description }}</p>
+                </li>
+                <br>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No articles found.</p>
+    {% endif %}
+
+{% endblock content %}
